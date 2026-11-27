@@ -1,0 +1,180 @@
+{
+  "precision": "int4",
+  "scope": "memory",
+  "dtype": "bfloat16",
+  "torch": "2.11.0.post2+musa5.2.0",
+  "triton": "3.6.0",
+  "vllm": "0.32.0",
+  "device": "MTT S5000",
+  "backend_sha256": "46f79bb2789b20f9044e568888428158b3518415dc5e45eb119fcce679eb94bd",
+  "benchmark_sha256": "f2d09ddcbe22588304b4a7c75ebe77ea0f5d389e7780b3862805576ee7ef768d",
+  "mode": "KERNEL",
+  "warmup_ms": 1000,
+  "repeat_ms": 100,
+  "rounds": 1,
+  "baseline": "native quantized INT4 fused_experts",
+  "cases": [
+    {
+      "shape": [
+        16384,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 0.00010429877875139937,
+        "relative_global_peak": 0.003086419776082039,
+        "mean_relative": 2.735136604314903e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.0037166252732276917,
+        "relative_global_peak": 0.007132089696824551,
+        "mean_relative": 0.0036663152277469635,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.0037165535613894463,
+        "relative_global_peak": 0.007132089696824551,
+        "mean_relative": 0.0036662460770457983,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 990321152,
+      "graph_extra_peak_bytes": 990322176,
+      "output_bytes": 134217728,
+      "eager_scratch_bytes": 856103424,
+      "graph_scratch_bytes": 856104448,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 0.00010429877875139937,
+        "relative_global_peak": 0.003086419776082039,
+        "mean_relative": 2.735136604314903e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.746243212139234e-05,
+        "relative_global_peak": 0.0031250000465661287,
+        "mean_relative": 5.773317752755247e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.003754740348085761,
+        "relative_global_peak": 0.00730070611461997,
+        "mean_relative": 0.0037048696540296078,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    },
+    {
+      "shape": [
+        32768,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 0.00010743669554358348,
+        "relative_global_peak": 0.0028901733458042145,
+        "mean_relative": 2.8498111532826442e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.003716746810823679,
+        "relative_global_peak": 0.005452151410281658,
+        "mean_relative": 0.003666782518848777,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.003716792445629835,
+        "relative_global_peak": 0.005452151410281658,
+        "mean_relative": 0.0036668130196630955,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 1980576256,
+      "graph_extra_peak_bytes": 1980577280,
+      "output_bytes": 268435456,
+      "eager_scratch_bytes": 1712140800,
+      "graph_scratch_bytes": 1712141824,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 0.00010743669554358348,
+        "relative_global_peak": 0.0028901733458042145,
+        "mean_relative": 2.8498111532826442e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.6205583203118294e-05,
+        "relative_global_peak": 0.0029411765281111,
+        "mean_relative": 5.583927418228996e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.0037547005340456963,
+        "relative_global_peak": 0.004723262041807175,
+        "mean_relative": 0.003705547424033284,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    },
+    {
+      "shape": [
+        65536,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 0.00010344279144192114,
+        "relative_global_peak": 0.0029761905316263437,
+        "mean_relative": 2.6474535843590274e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.003716259729117155,
+        "relative_global_peak": 0.007638489827513695,
+        "mean_relative": 0.003666140604764223,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.0037162567023187876,
+        "relative_global_peak": 0.007638489827513695,
+        "mean_relative": 0.003666143398731947,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 2683561984,
+      "graph_extra_peak_bytes": 2683679744,
+      "output_bytes": 536870912,
+      "eager_scratch_bytes": 2146691072,
+      "graph_scratch_bytes": 2146808832,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 0.00010344279144192114,
+        "relative_global_peak": 0.0029761905316263437,
+        "mean_relative": 2.6474535843590274e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.752457243739627e-05,
+        "relative_global_peak": 0.002994012087583542,
+        "mean_relative": 5.856157372363668e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.003754551289603114,
+        "relative_global_peak": 0.005944103933870792,
+        "mean_relative": 0.0037050466053187847,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "precision": "int4",
+  "scope": "paired-controls",
+  "dtype": "bfloat16",
+  "torch": "2.11.0.post2+musa5.2.0",
+  "triton": "3.6.0",
+  "vllm": "0.32.0",
+  "device": "MTT S5000",
+  "backend_sha256": "46f79bb2789b20f9044e568888428158b3518415dc5e45eb119fcce679eb94bd",
+  "benchmark_sha256": "f2d09ddcbe22588304b4a7c75ebe77ea0f5d389e7780b3862805576ee7ef768d",
+  "mode": "CUDAGRAPH",
+  "warmup_ms": 1000,
+  "repeat_ms": 100,
+  "rounds": 5,
+  "baseline": "native quantized INT4 fused_experts",
+  "cases": [
+    {
+      "shape": [
+        8,
+        8,
+        4096,
+        14336,
+        2
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 8.519794464111328,
+          "after": 4.663962772914342
+        },
+        {
+          "after": 4.664886837913876,
+          "before": 8.526714324951172
+        },
+        {
+          "before": 8.522825067693535,
+          "after": 4.672340756370907
+        },
+        {
+          "after": 4.672431945800781,
+          "before": 8.542577916925604
+        },
+        {
+          "before": 8.538222226229582,
+          "after": 4.691493443080358
+        }
+      ],
+      "median_ms": {
+        "before": 8.526714324951172,
+        "after": 4.672340756370907
+      },
+      "gain": 1.8249341753006103,
+      "pass": true
+    },
+    {
+      "shape": [
+        64,
+        256,
+        2048,
+        128,
+        8
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 0.6181228879898314,
+          "after": 0.6157854684391377
+        },
+        {
+          "after": 0.6176710510253907,
+          "before": 0.617932085720998
+        },
+        {
+          "before": 0.6180509484332541,
+          "after": 0.6180977556440566
+        },
+        {
+          "after": 0.6413083845569241,
+          "before": 0.6216114728878706
+        },
+        {
+          "before": 0.6185035168285101,
+          "after": 0.6173083889868951
+        }
+      ],
+      "median_ms": {
+        "before": 0.6181228879898314,
+        "after": 0.6176710510253907
+      },
+      "gain": 1.0007315171460451,
+      "pass": true
+    },
+    {
+      "shape": [
+        32,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 1.7156419020432692,
+          "after": 1.7190872718547952
+        },
+        {
+          "after": 1.7111275771568561,
+          "before": 1.7206504256637007
+        },
+        {
+          "before": 1.711468269085062,
+          "after": 1.7124510140254579
+        },
+        {
+          "after": 1.715658871632702,
+          "before": 1.7138696867844154
+        },
+        {
+          "before": 1.71711179945204,
+          "after": 1.720044877794054
+        }
+      ],
+      "median_ms": {
+        "before": 1.7156419020432692,
+        "after": 1.715658871632702
+      },
+      "gain": 0.999990108995609,
+      "pass": true
+    },
+    {
+      "shape": [
+        40,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 1.948331061829912,
+          "after": 1.9430949687957764
+        },
+        {
+          "after": 1.9584962526957193,
+          "before": 1.9459059906005858
+        },
+        {
+          "before": 1.9418380443866436,
+          "after": 1.9520603748078043
+        },
+        {
+          "after": 1.9590211709340415,
+          "before": 1.9647150039672852
+        },
+        {
+          "before": 1.9448222247037021,
+          "after": 1.9627049763997397
+        }
+      ],
+      "median_ms": {
+        "before": 1.9459059906005858,
+        "after": 1.9584962526957193
+      },
+      "gain": 0.993571464802241,
+      "pass": true
+    },
+    {
+      "shape": [
+        80,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 2.5566751634752425,
+          "after": 2.574619483947754
+        },
+        {
+          "after": 2.544760008116026,
+          "before": 2.516877460479736
+        },
+        {
+          "before": 2.524671812315245,
+          "after": 2.5756175041198732
+        },
+        {
+          "after": 2.5415790264423075,
+          "before": 2.546081646068676
+        },
+        {
+          "before": 2.554343764846389,
+          "after": 2.5450969598232174
+        }
+      ],
+      "median_ms": {
+        "before": 2.546081646068676,
+        "after": 2.5450969598232174
+      },
+      "gain": 1.0003868953760908,
+      "pass": true
+    },
+    {
+      "shape": [
+        2048,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 3.4954451101797597,
+          "after": 3.490269628064386
+        },
+        {
+          "after": 3.4742489567509405,
+          "before": 3.4681200098108365
+        },
+        {
+          "before": 3.5136340105975115,
+          "after": 3.477646721733941
+        },
+        {
+          "after": 3.468542169641565,
+          "before": 3.467545262089482
+        },
+        {
+          "before": 3.502096505000673,
+          "after": 3.500646130792026
+        }
+      ],
+      "median_ms": {
+        "before": 3.4954451101797597,
+        "after": 3.477646721733941
+      },
+      "gain": 1.0051179403401116,
+      "pass": true
+    },
+    {
+      "shape": [
+        16384,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 21.69307041168213,
+          "after": 21.295589447021484
+        },
+        {
+          "after": 21.349913597106934,
+          "before": 21.29428482055664
+        },
+        {
+          "before": 21.519068717956543,
+          "after": 21.31515598297119
+        },
+        {
+          "after": 21.319034576416016,
+          "before": 21.29441547393799
+        },
+        {
+          "before": 21.287314414978027,
+          "after": 21.64812469482422
+        }
+      ],
+      "median_ms": {
+        "before": 21.29441547393799,
+        "after": 21.319034576416016
+      },
+      "gain": 0.9988452055654874,
+      "pass": true
+    },
+    {
+      "shape": [
+        65536,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "error_vs_before": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "before": 83.11645889282227,
+          "after": 84.55973815917969
+        },
+        {
+          "after": 83.87384414672852,
+          "before": 83.25514221191406
+        },
+        {
+          "before": 84.46144485473633,
+          "after": 83.7379150390625
+        },
+        {
+          "after": 83.75565719604492,
+          "before": 84.22071838378906
+        },
+        {
+          "before": 83.27505493164062,
+          "after": 82.9286994934082
+        }
+      ],
+      "median_ms": {
+        "before": 83.27505493164062,
+        "after": 83.75565719604492
+      },
+      "gain": 0.9942618531034941,
+      "pass": true
+    }
+  ],
+  "base_sha": "29b82b3d8aa6a1f906c61f9caa20dfd59c9d8a36"
+}

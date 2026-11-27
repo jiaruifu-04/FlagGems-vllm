@@ -1,0 +1,180 @@
+{
+  "precision": "fp8",
+  "scope": "memory",
+  "dtype": "bfloat16",
+  "torch": "2.11.0.post2+musa5.2.0",
+  "triton": "3.6.0",
+  "vllm": "0.32.0",
+  "device": "MTT S5000",
+  "backend_sha256": "46f79bb2789b20f9044e568888428158b3518415dc5e45eb119fcce679eb94bd",
+  "benchmark_sha256": "9b2e28650fe09abc4eab02d19b7c59f8f451c5fa906b6286b30acd305b0dd606",
+  "mode": "KERNEL",
+  "warmup_ms": 1000,
+  "repeat_ms": 100,
+  "rounds": 1,
+  "baseline": "native BF16 fused_experts on identical decoded E4M3 weights",
+  "cases": [
+    {
+      "shape": [
+        16384,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 0.00010349132935516536,
+        "relative_global_peak": 0.0031446542125195265,
+        "mean_relative": 2.7122694064019015e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.0037156532052904367,
+        "relative_global_peak": 0.008502788841724396,
+        "mean_relative": 0.0036654386203736067,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.0037155901081860065,
+        "relative_global_peak": 0.008502788841724396,
+        "mean_relative": 0.003665377153083682,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 990321152,
+      "graph_extra_peak_bytes": 990322176,
+      "output_bytes": 134217728,
+      "eager_scratch_bytes": 856103424,
+      "graph_scratch_bytes": 856104448,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 0.00010349132935516536,
+        "relative_global_peak": 0.0031446542125195265,
+        "mean_relative": 2.7122694064019015e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.51731430075597e-05,
+        "relative_global_peak": 0.0032051282469183207,
+        "mean_relative": 5.427338578556373e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.0037566127721220255,
+        "relative_global_peak": 0.0061662872321903706,
+        "mean_relative": 0.0037070668768137693,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    },
+    {
+      "shape": [
+        32768,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 0.0001021624484565109,
+        "relative_global_peak": 0.000739644980058074,
+        "mean_relative": 2.7330229386279825e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.0037243913393467665,
+        "relative_global_peak": 0.006833325605839491,
+        "mean_relative": 0.003658420406281948,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.0037244015838950872,
+        "relative_global_peak": 0.006833325605839491,
+        "mean_relative": 0.0036584234330803156,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 1980576256,
+      "graph_extra_peak_bytes": 1980577280,
+      "output_bytes": 268435456,
+      "eager_scratch_bytes": 1712140800,
+      "graph_scratch_bytes": 1712141824,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 0.0001021624484565109,
+        "relative_global_peak": 0.000739644980058074,
+        "mean_relative": 2.7330229386279825e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.64016520709265e-05,
+        "relative_global_peak": 0.000739644980058074,
+        "mean_relative": 5.724144784835516e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.0037522991187870502,
+        "relative_global_peak": 0.0069104451686143875,
+        "mean_relative": 0.0036971233785152435,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    },
+    {
+      "shape": [
+        65536,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "count": null,
+      "error_vs_native": {
+        "relative_rms": 9.676185436546803e-05,
+        "relative_global_peak": 0.00028538814513012767,
+        "mean_relative": 2.487155143171549e-06,
+        "pass_bounds": true
+      },
+      "error_vs_fp32": {
+        "relative_rms": 0.0036950267385691404,
+        "relative_global_peak": 0.004142822232097387,
+        "mean_relative": 0.0036546087358146906,
+        "pass_bounds": true
+      },
+      "native_error_vs_fp32": {
+        "relative_rms": 0.0036950642243027687,
+        "relative_global_peak": 0.004142822232097387,
+        "mean_relative": 0.0036546404007822275,
+        "pass_bounds": true
+      },
+      "eager_extra_peak_bytes": 2683561984,
+      "graph_extra_peak_bytes": 2683679744,
+      "output_bytes": 536870912,
+      "eager_scratch_bytes": 2146691072,
+      "graph_scratch_bytes": 2146808832,
+      "budget_bytes": 2147483648,
+      "graph_before_update": {
+        "relative_rms": 9.676185436546803e-05,
+        "relative_global_peak": 0.00028538814513012767,
+        "mean_relative": 2.487155143171549e-06,
+        "pass_bounds": true
+      },
+      "graph_after_activation_update": {
+        "relative_rms": 4.5935888920212165e-05,
+        "relative_global_peak": 0.0005707762902602553,
+        "mean_relative": 5.720650619878143e-07,
+        "pass_bounds": true
+      },
+      "graph_after_update_vs_fp32": {
+        "relative_rms": 0.003732953919097781,
+        "relative_global_peak": 0.004692343063652515,
+        "mean_relative": 0.003694955026730895,
+        "pass_bounds": true
+      },
+      "workspace_pass": true,
+      "pass": true
+    }
+  ]
+}
