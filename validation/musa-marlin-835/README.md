@@ -1,5 +1,7 @@
 # MUSA Marlin MoE: #835 follow-up, PPU-aligned validation
 
+Latest supplement: [review-driven aggregation, interface tests and CTA analysis](review-followup.md). The measurements below retain their original tested revision and statistical definitions.
+
 Code: `c3c14b502b48e3c450b64a6c1f90719c49e10ad0`. Base: `29b82b3d8aa6a1f906c61f9caa20dfd59c9d8a36`. Hardware runs: 2026-11-27.
 
 ## Scope and outcome

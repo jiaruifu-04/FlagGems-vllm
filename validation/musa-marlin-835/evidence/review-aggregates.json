@@ -1,0 +1,36 @@
+{
+  "acceptance-int4": {
+    "cases": 42,
+    "geometric_mean": 1.6073416231552295,
+    "arithmetic_mean": 1.649754538779844,
+    "min": 0.9588677806093892,
+    "max": 4.068014276626065
+  },
+  "acceptance-fp8": {
+    "cases": 38,
+    "geometric_mean": 1.8800061697260801,
+    "arithmetic_mean": 2.0652819291329947,
+    "min": 0.765922068207527,
+    "max": 3.9251785074081837
+  },
+  "trace-int4": {
+    "cases": 53,
+    "geometric_mean": 1.418835303806409,
+    "arithmetic_mean": 1.4336403946137035,
+    "min": 1.1915836864736524,
+    "max": 3.19610167286443,
+    "count": 10105,
+    "count_weighted_geometric_mean": 1.41322448488102,
+    "count_weighted_arithmetic_mean": 1.4266784485691737
+  },
+  "trace-fp8": {
+    "cases": 53,
+    "geometric_mean": 1.703614390046613,
+    "arithmetic_mean": 1.785198899203206,
+    "min": 0.5049453485709785,
+    "max": 3.547804558366736,
+    "count": 10105,
+    "count_weighted_geometric_mean": 1.5705168633272601,
+    "count_weighted_arithmetic_mean": 1.7013887248061925
+  }
+}

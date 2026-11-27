@@ -1,5 +1,5 @@
 {
-  "README.md": "ecbb9cb164931f170e34f65792cc025c4b7006fd776015fb01555ee788e6ed02",
+  "README.md": "a30a969f8523d4eb6706e41f8148c93f024814e3c0a6091f4f5b16b5ec4f28c6",
   "baseline_musa.py": "f73591d7c7b488033835ec67b04c0a63c359defcbf56bf20e56c8460efa9b5e1",
   "evidence/acceptance-fp8.json": "fde56edd57ab84d8f941b7a04b21d0c90d291abe205ac1dc8b75559d5dd48887",
   "evidence/acceptance-int4.json": "aa8cbd06eff47c8197b50f0bd66b9ad3ef27786574871ff7ccc007c96bc3752b",
@@ -10,8 +10,16 @@
   "evidence/memory-int4.json": "a070e3aaa22edad26f06166a7944077a1df79fd9b089c5a5ce1f73f5f719ab22",
   "evidence/no-torch-audit.txt": "ec375baa66961b26500b85804b98f3fc3fa8ae07e36565ca15c247c18b41eef7",
   "evidence/ppu-trace.json": "119f34c31a926d74eed44f1d42df2771812be434d588ea99be488201f9322fba",
+  "evidence/review-aggregates.json": "c03d6e77602d563b2a6bb4f1a8cd33f39877043b55ec5e9116f8595cbf19f728",
+  "evidence/review-final-tests.xml": "f659064704fabe2c86778f224c114f43c441c1f17e28738e677bbdac92b164b7",
+  "evidence/review-source-equivalence.json": "1878300ab000e996e08031efcf01ad07ea7f2b9a438a3746ec079e08407c7737",
+  "evidence/route-capacity-fp8-recheck.json": "f0ba381b9212fbe66dc87693619217ed5fc0420af573f833a60396b9328968c7",
+  "evidence/route-capacity-fp8.json": "d420e45f0609a9da470bc79f5c87dc4b6fe4a8df7ac09d606becf811ba8ae136",
+  "evidence/route-capacity-int4.json": "fe477d2f077867e72c36769ab9c2cbce66075cfbf540aaeb0f1185401e3b4ae5",
   "evidence/trace-fp8.json": "f31b696ee2c96e0991acc2492c8a297071a6d063e766ec01890eb931a0490291",
   "evidence/trace-int4.json": "754f80c2f78cecd96c948595ce1f661b1bd14d30f883f15a95b8bdc46e51ec0e",
+  "measure_route_capacity.py": "c27e3f9f5f7c40c91904a6d09be440b0243d3e70a8bcd0b022cd7b7edbafb340",
   "paired_controls.py": "e2446e2ea550743f4d6646f7e95e5599a0ec7a6524520b79da5bf9c8cf9165c4",
+  "review-followup.md": "3eaf1acba3b9cf66001b407a8f8444012a039a6112e90835f89d4e0b65bc74f2",
   "validate_835.py": "32839cf8c6cf015e9853741c158b6bc65a5502ecaa660b815f3b09f9010e9bb6"
 }

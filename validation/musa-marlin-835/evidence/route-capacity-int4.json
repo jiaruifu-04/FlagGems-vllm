@@ -1,0 +1,514 @@
+{
+  "precision": "int4",
+  "scope": "route-capacity-diagnostic",
+  "dtype": "bfloat16",
+  "torch": "2.11.0.post2+musa5.2.0",
+  "triton": "3.6.0",
+  "vllm": "0.32.0",
+  "device": "MTT S5000",
+  "backend_sha256": "20ebe6e4b322282b5f62488130e1f528fbf866250e22dc560e312f4117b3a861",
+  "benchmark_sha256": "f2d09ddcbe22588304b4a7c75ebe77ea0f5d389e7780b3862805576ee7ef768d",
+  "mode": "CUDAGRAPH",
+  "warmup_ms": 1000,
+  "repeat_ms": 100,
+  "rounds": 5,
+  "baseline": "native quantized INT4 fused_experts",
+  "cases": [
+    {
+      "shape": [
+        8,
+        8,
+        4096,
+        14336,
+        2
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 8,
+          "routes": 16,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 256,
+          "valid_padded_routes": 112,
+          "capacity_blocks": 16,
+          "active_blocks": 7,
+          "empty_block_fraction": 0.5625,
+          "gate_ctas": 3584,
+          "down_ctas": 1024,
+          "align_workspace_bytes": 0
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 4.840032958984375,
+          "exact": 4.497835506092418
+        },
+        {
+          "exact": 4.502145247025924,
+          "capacity": 4.882402801513672
+        },
+        {
+          "capacity": 4.8814088821411135,
+          "exact": 4.501556214832124
+        },
+        {
+          "exact": 4.514004620638761,
+          "capacity": 4.869717788696289
+        },
+        {
+          "capacity": 4.902110862731933,
+          "exact": 4.501461029052734
+        }
+      ],
+      "median_ms": {
+        "capacity": 4.8814088821411135,
+        "exact": 4.501556214832124
+      },
+      "gain": 1.0843825222169652,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        64,
+        256,
+        2048,
+        128,
+        8
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 64,
+          "routes": 512,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 4352,
+          "valid_padded_routes": 3536,
+          "capacity_blocks": 272,
+          "active_blocks": 221,
+          "empty_block_fraction": 0.1875,
+          "gate_ctas": 544,
+          "down_ctas": 8704,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 0.6615793212386203,
+          "exact": 0.662349734099015
+        },
+        {
+          "exact": 0.6634743100120908,
+          "capacity": 0.6596301437972427
+        },
+        {
+          "capacity": 0.65625279343973,
+          "exact": 0.6619713553066912
+        },
+        {
+          "exact": 0.6622808273524454,
+          "capacity": 0.6535080803765191
+        },
+        {
+          "capacity": 0.656568868270773,
+          "exact": 0.6615619270169005
+        }
+      ],
+      "median_ms": {
+        "capacity": 0.656568868270773,
+        "exact": 0.6622808273524454
+      },
+      "gain": 0.9913753216977355,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        32,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 32,
+          "routes": 192,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 3072,
+          "valid_padded_routes": 2176,
+          "capacity_blocks": 192,
+          "active_blocks": 136,
+          "empty_block_fraction": 0.29166666666666663,
+          "gate_ctas": 768,
+          "down_ctas": 12288,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 1.8082875665628686,
+          "exact": 1.7758396884851289
+        },
+        {
+          "exact": 1.77469896015368,
+          "capacity": 1.8119539533342635
+        },
+        {
+          "capacity": 1.8188546044485912,
+          "exact": 1.7755459567956757
+        },
+        {
+          "exact": 1.7783867016173245,
+          "capacity": 1.8132396194170106
+        },
+        {
+          "capacity": 1.8164852790112764,
+          "exact": 1.773424182021827
+        }
+      ],
+      "median_ms": {
+        "capacity": 1.8132396194170106,
+        "exact": 1.7755459567956757
+      },
+      "gain": 1.0212293365187577,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        40,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 40,
+          "routes": 240,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 3840,
+          "valid_padded_routes": 2560,
+          "capacity_blocks": 240,
+          "active_blocks": 160,
+          "empty_block_fraction": 0.33333333333333337,
+          "gate_ctas": 960,
+          "down_ctas": 15360,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 2.11435555352105,
+          "exact": 1.9592575540347976
+        },
+        {
+          "exact": 1.9522100067138672,
+          "capacity": 2.1200564840565557
+        },
+        {
+          "capacity": 2.1171052720811634,
+          "exact": 1.9498314370914382
+        },
+        {
+          "exact": 1.9470893704161352,
+          "capacity": 2.1127557145788316
+        },
+        {
+          "capacity": 2.0851754947584507,
+          "exact": 1.9279849529266357
+        }
+      ],
+      "median_ms": {
+        "capacity": 2.11435555352105,
+        "exact": 1.9498314370914382
+      },
+      "gain": 1.0843786356604406,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        80,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 80,
+          "routes": 480,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 4320,
+          "valid_padded_routes": 3472,
+          "capacity_blocks": 270,
+          "active_blocks": 217,
+          "empty_block_fraction": 0.1962962962962963,
+          "gate_ctas": 1080,
+          "down_ctas": 17280,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 2.6364363620155737,
+          "exact": 2.5599487500313
+        },
+        {
+          "exact": 2.5584820478390427,
+          "capacity": 2.6382788580817147
+        },
+        {
+          "capacity": 2.6588771608140735,
+          "exact": 2.5585287997597144
+        },
+        {
+          "exact": 2.5539058994602515,
+          "capacity": 2.6371120653654403
+        },
+        {
+          "capacity": 2.651002110661687,
+          "exact": 2.5552246876252003
+        }
+      ],
+      "median_ms": {
+        "capacity": 2.6382788580817147,
+        "exact": 2.5584820478390427
+      },
+      "gain": 1.0311891225932464,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        2048,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 2048,
+          "routes": 12288,
+          "bm": 64,
+          "direct": false,
+          "route_capacity": 28416,
+          "valid_padded_routes": 16576,
+          "capacity_blocks": 444,
+          "active_blocks": 259,
+          "empty_block_fraction": 0.41666666666666663,
+          "gate_ctas": 3552,
+          "down_ctas": 56832,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 3.6238762184425637,
+          "exact": 3.610386439732143
+        },
+        {
+          "exact": 3.6295237907996545,
+          "capacity": 3.6254108135516825
+        },
+        {
+          "capacity": 3.6391484396798273,
+          "exact": 3.6292630709134617
+        },
+        {
+          "exact": 3.6269170320951023,
+          "capacity": 3.6406155338993775
+        },
+        {
+          "capacity": 3.6194154299222507,
+          "exact": 3.5955919538225447
+        }
+      ],
+      "median_ms": {
+        "capacity": 3.6254108135516825,
+        "exact": 3.6269170320951023
+      },
+      "gain": 0.9995847110562246,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        16384,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 16384,
+          "routes": 98304,
+          "bm": 64,
+          "direct": false,
+          "route_capacity": 114432,
+          "valid_padded_routes": 106496,
+          "capacity_blocks": 1788,
+          "active_blocks": 1664,
+          "empty_block_fraction": 0.06935123042505598,
+          "gate_ctas": 14304,
+          "down_ctas": 228864,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 22.049545288085938,
+          "exact": 22.0401611328125
+        },
+        {
+          "exact": 22.027944564819336,
+          "capacity": 22.153724670410156
+        },
+        {
+          "capacity": 22.124804496765137,
+          "exact": 21.955504417419434
+        },
+        {
+          "exact": 22.04726505279541,
+          "capacity": 22.104820251464844
+        },
+        {
+          "capacity": 22.154014587402344,
+          "exact": 22.04612922668457
+        }
+      ],
+      "median_ms": {
+        "capacity": 22.124804496765137,
+        "exact": 22.0401611328125
+      },
+      "gain": 1.0038404149335651,
+      "pass_bounds": true
+    },
+    {
+      "shape": [
+        65536,
+        256,
+        4096,
+        256,
+        6
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 41075,
+          "routes": 246450,
+          "bm": 64,
+          "direct": false,
+          "route_capacity": 262578,
+          "valid_padded_routes": 255040,
+          "capacity_blocks": 4103,
+          "active_blocks": 3985,
+          "empty_block_fraction": 0.028759444309042204,
+          "gate_ctas": 32824,
+          "down_ctas": 525184,
+          "align_workspace_bytes": 264196
+        },
+        {
+          "start": 41075,
+          "tokens": 24461,
+          "routes": 146766,
+          "bm": 64,
+          "direct": false,
+          "route_capacity": 162894,
+          "valid_padded_routes": 154432,
+          "capacity_blocks": 2546,
+          "active_blocks": 2413,
+          "empty_block_fraction": 0.052238805970149294,
+          "gate_ctas": 20368,
+          "down_ctas": 325888,
+          "align_workspace_bytes": 264196
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 87.55622100830078,
+          "exact": 87.92287826538086
+        },
+        {
+          "exact": 88.16123962402344,
+          "capacity": 87.01434326171875
+        },
+        {
+          "capacity": 87.10329818725586,
+          "exact": 87.3907585144043
+        },
+        {
+          "exact": 86.82939529418945,
+          "capacity": 87.10009765625
+        },
+        {
+          "capacity": 86.75960159301758,
+          "exact": 86.85937881469727
+        }
+      ],
+      "median_ms": {
+        "capacity": 87.10009765625,
+        "exact": 87.3907585144043
+      },
+      "gain": 0.9966740092076625,
+      "pass_bounds": true
+    }
+  ],
+  "caveat": "Exact grids use CPU-precomputed counts for frozen routes. This is an upper-bound diagnostic, not a deployable graph-safe dynamic dispatch."
+}

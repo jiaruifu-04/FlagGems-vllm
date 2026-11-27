@@ -1,0 +1,79 @@
+{
+  "precision": "fp8",
+  "scope": "route-capacity-diagnostic",
+  "dtype": "bfloat16",
+  "torch": "2.11.0.post2+musa5.2.0",
+  "triton": "3.6.0",
+  "vllm": "0.32.0",
+  "device": "MTT S5000",
+  "backend_sha256": "4b9e48a5577808e32f5f31074d738e23f166b5e4263310dbd04aebad0959c02f",
+  "benchmark_sha256": "9b2e28650fe09abc4eab02d19b7c59f8f451c5fa906b6286b30acd305b0dd606",
+  "mode": "CUDAGRAPH",
+  "warmup_ms": 1000,
+  "repeat_ms": 100,
+  "rounds": 5,
+  "baseline": "native BF16 fused_experts on identical decoded E4M3 weights",
+  "cases": [
+    {
+      "shape": [
+        8,
+        8,
+        4096,
+        14336,
+        2
+      ],
+      "chunks": [
+        {
+          "start": 0,
+          "tokens": 8,
+          "routes": 16,
+          "bm": 16,
+          "direct": false,
+          "route_capacity": 256,
+          "valid_padded_routes": 112,
+          "capacity_blocks": 16,
+          "active_blocks": 7,
+          "empty_block_fraction": 0.5625,
+          "gate_ctas": 3584,
+          "down_ctas": 1024,
+          "align_workspace_bytes": 0
+        }
+      ],
+      "error_vs_capacity": {
+        "relative_rms": 0.0,
+        "relative_global_peak": 0.0,
+        "mean_relative": 0.0,
+        "pass_bounds": true
+      },
+      "rounds_ms": [
+        {
+          "capacity": 3.2982551311624464,
+          "exact": 3.1714759037412446
+        },
+        {
+          "exact": 3.166543283770161,
+          "capacity": 3.3276695251464847
+        },
+        {
+          "capacity": 3.3184544881184896,
+          "exact": 3.1699142456054688
+        },
+        {
+          "exact": 3.1712726354599,
+          "capacity": 3.331572087605794
+        },
+        {
+          "capacity": 3.3234200795491535,
+          "exact": 3.1709565787479796
+        }
+      ],
+      "median_ms": {
+        "capacity": 3.3234200795491535,
+        "exact": 3.1709565787479796
+      },
+      "gain": 1.0480812325917666,
+      "pass_bounds": true
+    }
+  ],
+  "caveat": "Exact grids use CPU-precomputed counts for frozen routes. This is an upper-bound diagnostic, not a deployable graph-safe dynamic dispatch."
+}
